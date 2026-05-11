@@ -48,7 +48,7 @@ export const getTasks = async (req: AuthRequest, res: Response) => {
 
 export const updateTask = async (req: AuthRequest, res: Response) => {
   try {
-    const { id } = req.params;
+    const id = req.params.id as string;
     const validatedData = taskSchema.partial().parse(req.body);
     const userId = req.user!.id;
     const role = req.user!.role;
@@ -79,7 +79,7 @@ export const updateTask = async (req: AuthRequest, res: Response) => {
 
 export const deleteTask = async (req: AuthRequest, res: Response) => {
   try {
-    const { id } = req.params;
+    const id = req.params.id as string;
     const userId = req.user!.id;
     const role = req.user!.role;
 
